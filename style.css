@@ -1,0 +1,243 @@
+/* --- Basic Reset and Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #f5e6ff, #d6eaff);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 40px 30px 70px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app h1 {
+    color: #3D5A6C; 
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* THIS IS THE NEW STYLE FOR THE SVG ICON */
+.title-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    stroke: #3D5A6C; /* Match the color of the title text */
+}
+
+/* --- Input Area --- */
+.add-task-container {
+    background: #f7f9fc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#input-box, #priority-select, #due-date-input {
+    border: 1px solid #e1e4e8;
+    outline: none;
+    background: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#input-box::placeholder {
+    color: #999;
+}
+
+.task-options {
+    display: flex;
+    gap: 10px;
+}
+
+#priority-select, #due-date-input {
+    flex-grow: 1;
+    color: #555;
+}
+
+#add-btn {
+    border: none;
+    outline: none;
+    padding: 14px 40px;
+    background: #58C2B3;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#add-btn:hover {
+    background: #4aa899;
+}
+
+/* --- Controls: Filters and Counter --- */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.filters span {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #555;
+    transition: background 0.3s, color 0.3s;
+}
+
+.filters span:hover {
+    background: #eef2f7;
+}
+
+.filters span.active {
+    background: #58C2B3;
+    color: #fff;
+}
+
+#task-counter {
+    color: #777;
+    font-weight: 300;
+}
+
+/* --- Task List --- */
+ul {
+    list-style: none;
+}
+
+ul li {
+    font-size: 17px;
+    padding: 15px 8px 15px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eff1f3;
+    transition: background 0.2s;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li:hover {
+    background: #f7f9fc;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url('https://i.imgur.com/r6gKj1n.png');
+    background-size: cover;
+    background-position: center;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+}
+
+ul li.checked {
+    color: #a0a0a0;
+    text-decoration: line-through;
+    text-decoration-color: #ccc;
+}
+
+ul li.checked::before {
+    background-image: url('https://i.imgur.com/tYpZdAB.png');
+}
+
+/* --- Task Details: Priority, Due Date --- */
+.task-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+    padding-right: 45px;
+}
+
+.priority {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    color: #fff;
+}
+.priority.high   { background: #F8A9A9; }
+.priority.medium { background: #FDDDA9; color: #a67c33; }
+.priority.low    { background: #B4E4C3; color: #3a814f; }
+
+.due-date {
+    font-size: 14px;
+    color: #888;
+}
+
+li.overdue .due-date {
+    color: #E57373;
+    font-weight: 600;
+}
+
+/* --- Delete Button --- */
+.delete-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    color: #aaa;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ffebee;
+    color: #E57373;
+}
+
+/* --- Other UI states --- */
+.no-tasks {
+    text-align: center;
+    color: #999;
+    margin-top: 20px;
+}
+
+.edit-input {
+    width: 100%;
+    border: 1px solid #58C2B3;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
